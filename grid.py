@@ -12,28 +12,34 @@ def createGrid(lines, columns, upLine, upColumn):
 		
 def main():
 
-	slotSize = 200; #size of the schedule slot in ms
+	slotSize = 7000; #size of the schedule slot in ms
 
 	schedule = createGrid(4,5, randint(0,3), randint(0,4))
+	print(schedule)
 
 	scheduleIndex = 0
 
+	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
 	while True:
 
-		print(scheduleIndex, schedule[scheduleIndex])
-		time.sleep(slotSize/1000)
+		if(schedule[scheduleIndex]):
+			#interface on
+			print("Interface  ON", time.strftime("%H:%M:%S"))
+			os.system("rfkill unblock 1")
+		else:
+			#interfaceoff
+			print("Interface OFF", time.strftime("%H:%M:%S"))
+			os.system("rfkill block 1")
+
 
 
 		#while not at the end of the schedule indexes we increment the couter, else we refresh i
 		scheduleIndex = 0 if scheduleIndex >= len(schedule)-1 else scheduleIndex+1
 
-	# print("START", time.strftime("%Y/%m/%d, %H:%M:%S"))
-	# os.system("rfkill block 1")
-	# os.system("rfkill unblock 1")
-	# print(stream.read())
-	# return 0
+		#we now wait for the slottime to end
+		time.sleep(slotSize/1000)
+
+	return 0
 
 
-# a = createGrid(4,5, 0, 2)
-# print(a)
 main()
