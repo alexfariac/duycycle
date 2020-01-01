@@ -1,4 +1,4 @@
-import os
+import sys
 import time
 from random import randint
 
@@ -8,15 +8,16 @@ def createGrid(lines, columns, upLine, upColumn):
 		return 0
 	else:
 		#for line or column with given index (first in this case) we set the value for 1
-		return [1 if (x == upLine or y == upColumn) else 0 for x in range(lines) for y in range(columns)]
+		return [1 if (y == upLine or x == upColumn) else 0 for x in range(columns) for y in range(lines)]
 		
 def main():
 
-	slotSize = 7000; #size of the schedule slot in ms
+	slotSize = 5000; #size of the schedule slot in ms
+	lines = columns = 4
 
-	schedule = createGrid(4,5, randint(0,3), randint(0,4))
+	schedule = createGrid(lines, columns, randint(0,lines-1), randint(0,columns-1))
 	print(schedule)
-
+	
 	scheduleIndex = 0
 
 	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
