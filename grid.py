@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 from random import randint
@@ -8,7 +9,7 @@ def createGrid(lines, columns, upLine, upColumn):
 		return 0
 	else:
 		#for line or column with given index (first in this case) we set the value for 1
-		return [1 if (y == upLine or x == upColumn) else 0 for x in range(columns) for y in range(lines)]
+		return [1 if (lin == upLine or x == upColumn) else 0 for col in range(columns) for y in range(lines)]
 		
 def main():
 
