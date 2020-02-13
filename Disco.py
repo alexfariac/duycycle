@@ -1,7 +1,6 @@
 import os
 import sys
 import time
-from random import randint
 
 def createSchedule(p, q):
 	return [1 if slot%q == 0 or slot%p == 0 else 0 for slot in range(p*q)] 
@@ -9,7 +8,7 @@ def createSchedule(p, q):
 
 def main():
 
-	slotSize = 5000; #size of the schedule slot in ms
+	slotSize = 1000; #size of the schedule slot in ms
 	p = 3
 	q = 5
 
@@ -24,11 +23,12 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("rfkill unblock 1")
+			os.system("ifconfig wlp3s0 up")
 		else:
 			#interfaceoff
 			print("Interface OFF", time.strftime("%H:%M:%S"))
-			os.system("rfkill block 1")
+			# os.system("rfkill block 1")
+			os.system("ifconfig wlp3s0 down")
 
 
 

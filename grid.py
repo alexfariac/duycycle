@@ -9,7 +9,7 @@ def createGrid(lines, columns, upLine, upColumn):
 		return 0
 	else:
 		#for line or column with given index (first in this case) we set the value for 1
-		return [1 if (lin == upLine or x == upColumn) else 0 for col in range(columns) for y in range(lines)]
+		return [1 if (lin == upLine or col == upColumn) else 0 for col in range(columns) for lin in range(lines)]
 		
 def main():
 
@@ -27,11 +27,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("rfkill unblock 1")
+			os.system("ifconfig wlp3s0 up")
 		else:
 			#interfaceoff
 			print("Interface OFF", time.strftime("%H:%M:%S"))
-			os.system("rfkill block 1")
+			os.system("ifconfig wlp3s0 down")
 
 
 
