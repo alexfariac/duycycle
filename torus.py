@@ -23,7 +23,7 @@ def main():
 	slotSize = 5000; #size of the schedule slot in ms
 	lines = columns = 4
 
-	schedule = createSchedule(lines, columns, 2, 2)
+	schedule = createSchedule(lines, columns, randint(0,lines-1), randint(0,columns-1))
 	print(schedule)
 	return
 
