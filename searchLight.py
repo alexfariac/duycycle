@@ -9,8 +9,9 @@ def createSchedule(t):
 
 def main():
 
-	slotSize = 5000; #size of the schedule slot in ms
+	slotSize = 1000; #size of the schedule slot in ms
 
+	interface = "wlp3s0"
 	schedule = createSchedule(4)
 	print(schedule)
 	
@@ -22,11 +23,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("rfkill unblock 1")
+			os.system("ifconfig {} up".format(interface))
 		else:
 			#interfaceoff
 			print("Interface OFF", time.strftime("%H:%M:%S"))
-			os.system("rfkill block 1")
+			os.system("ifconfig {} down".format(interface))
 
 
 

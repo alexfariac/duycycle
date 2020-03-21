@@ -11,10 +11,11 @@ def main():
 	slotSize = 1000; #size of the schedule slot in ms
 	p = 3
 	q = 5
+	interface="wlp3s0"
 
 	schedule = createSchedule(p,q)
 	print(schedule)
-	
+
 	scheduleIndex = 0
 
 	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
@@ -23,12 +24,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("ifconfig wlp3s0 up")
+			os.system("ifconfig {} up".format(interface))
 		else:
 			#interfaceoff
-			print("Interface OFF", time.strftime("%H:%M:%S"))
-			# os.system("rfkill block 1")
-			os.system("ifconfig wlp3s0 down")
+			print("Interface  OFF", time.strftime("%H:%M:%S"))
+			os.system("ifconfig {} down".format(interface))
 
 
 

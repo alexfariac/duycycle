@@ -11,22 +11,16 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 
 i = 0
-print(range(15))
-for x in range(15):
+for x in range(100):
 	try:
-		time.sleep(0.001)
-
-		if(x == 5):
-			os.system("ifconfig wlp3s0 down")
-
-
-		if(x == 10):
-			os.system("ifconfig wlp3s0 up")
+		time.sleep(1)
 
 
 		sock.sendto(str(i), (UDP_IP, UDP_PORT))
+		print(str(i))
 
 	except Exception as e:
+		print(e)
 		pass
 
 	finally:

@@ -15,8 +15,9 @@ def main():
 
 	slotSize = 5000; #size of the schedule slot in ms
 	lines = columns = 4
+	interface="wlp3s0"
 
-	schedule = createGrid(lines, columns, randint(0,lines-1), randint(0,columns-1))
+	schedule = createGrid(lines, columns, 0, 0)
 	print(schedule)
 	
 	scheduleIndex = 0
@@ -27,11 +28,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("ifconfig wlp3s0 up")
+			os.system("ifconfig {} down".format(interface))
 		else:
 			#interfaceoff
-			print("Interface OFF", time.strftime("%H:%M:%S"))
-			os.system("ifconfig wlp3s0 down")
+			print("Interface  OFF", time.strftime("%H:%M:%S"))
+			os.system("ifconfig {} down".format(interface))
 
 
 

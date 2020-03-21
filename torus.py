@@ -5,10 +5,6 @@ from random import randint
 
 #function to create a matrix of arbitrary size
 def createSchedule(lines, columns, upLine, upColumn):
-	# for line in range(lines):
-	# 	for column in range(columns):
-	# 		if(line == upLine and column <= (columns//2)+1):
-
 	if(lines <= 0 or columns <= 0 or upColumn > columns): 
 		return 0
 	else:
@@ -22,10 +18,8 @@ def main():
 
 	slotSize = 5000; #size of the schedule slot in ms
 	lines = columns = 4
-
-	schedule = createSchedule(lines, columns, randint(0,lines-1), randint(0,columns-1))
-	print(schedule)
-	return
+	interace="wlp3s0"
+	schedule = createSchedule(lines, columns, 0, 0)
 
 	scheduleIndex = 0
 
@@ -35,11 +29,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("ifconfig wlp3s0 up")
+			os.system("ifconfig {} up".format(interface))
 		else:
 			#interfaceoff
-			print("Interface OFF", time.strftime("%H:%M:%S"))
-			os.system("ifconfig wlp3s0 down")
+			print("Interface  OFF", time.strftime("%H:%M:%S"))
+			os.system("ifconfig {} down".format(interface))
 
 
 
