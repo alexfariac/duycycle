@@ -1,3 +1,5 @@
+#HOW TO CALL THIS METHOD MORE INFO AT MAIN METHOD DEFINITION
+#python schedule.py {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
 import os
 import sys
 import time
@@ -36,6 +38,8 @@ class Schedule:
 def main():
 	#eg. python schedule.py wlp3s0 1000 grid 4 4
 	#python schedule.py {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
+	#interface = the interface that should use your duty cicle
+	#slot_size = the size of the slot in duty cicle (the amount of time in MS until move to the next slot)
 	#duty_cicle_args should be passed one by one separete by space
 	
 	args = sys.argv[1:6]
@@ -56,11 +60,11 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			# os.system("ifconfig {} down".format(interface))
+			os.system("ifconfig {} down".format(interface))
 		else:
 			#interfaceoff
 			print("Interface  OFF", time.strftime("%H:%M:%S"))
-			# os.system("ifconfig {} down".format(interface))
+			os.system("ifconfig {} down".format(interface))
 
 
 
