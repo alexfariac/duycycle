@@ -60,7 +60,7 @@ def main():
 		if(schedule[scheduleIndex]):
 			#interface on
 			print("Interface  ON", time.strftime("%H:%M:%S"))
-			os.system("ifconfig {} down".format(interface))
+			os.system("ifconfig {} up".format(interface))
 		else:
 			#interfaceoff
 			print("Interface  OFF", time.strftime("%H:%M:%S"))
