@@ -3,12 +3,16 @@
 import os
 import sys
 import time
+import random
 
 
 class Schedule:
 
 	def __init__(self, method):
-		self.schedule = eval("self."+method)
+		self.schedule = eval("self."+method) #the schedule array
+
+	def getSize(self):
+		return len(self.schedule)
 
 	def torus(self, lines,columns, upLine = 0, upColumn = 0):
 		if(lines <= 0 or columns <= 0 or upColumn > columns): 
@@ -49,10 +53,10 @@ def main():
 
 	method = "{}({})".format(dutyCicleMethod.lower(), dutyCicleArgs )
 	
-	schedule = Schedule(method).schedule
+	schedule_obj = Schedule(method)
 	
-
-	scheduleIndex = 0
+	schedule = schedule_obj.schedule
+	scheduleIndex = random.randint(0, schedule_obj.getSize()-1) #we start the 
 
 	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
 	while True:
