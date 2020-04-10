@@ -18,17 +18,17 @@ sock.setblocking(0)
 
 i=0 #numero de slots percorridos até o momento
 reps = 5 #quantidade de repeticoes de testes
-slot_size = 1000 #tamanho em MS de cada slot
+slot_size = 2000 #tamanho em MS de cada slot
 for rep in range(reps): #repeat the test multiple times
 
-	duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '1000', 'grid', '4', '4'])
+	duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '2000', 'grid', '4', '4'], creationflags = subprocess.CREATE_NEW_CONSOLE)
 	##python3 schedule.py wlp3s0 100 grid 4 4 #exemple call
 
 	while 1:
 		try:
 			time.sleep(int(slot_size)/1000) #wait for the slot time #we only try to send once each slot
 
-			data_to_send = str(i).encode()
+			data_to_send = "TestNo {}, SlotNo {}".format(rep, i).encode()
 			sock.sendto(data_to_send, (UDP_IP, UDP_PORT))
 			
 			#Espera retorno do receptor (foi esse o slot em que houve comunicacao ?)
@@ -38,7 +38,7 @@ for rep in range(reps): #repeat the test multiple times
 				#recebemos retorno do receptor com o valor do primeiro slot de comunicacao
 				#resetar os parametros para um novo teste
 				i = 0 #setar o contador paraum valor aleatorio dentro do schedule
-				print("RECEIVED BACK: TESTno {}, SLOTno {}".format(rep,data))
+				print("RECEIVED BACK: {}".format(data))
 				duty_cicle.terminate() #terminar o duty cicle atual. 
 				break #we get out the the index count loop, and go back to the tests repetitions loop
 
