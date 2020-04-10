@@ -1,5 +1,6 @@
 import socket
 import time
+import subprocess
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -10,6 +11,9 @@ sock = socket.socket(socket.AF_INET, # Internet
 sock.setblocking(0)
 
 sock.bind((UDP_IP, UDP_PORT))
+
+
+subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '1000', 'grid', '4', '4'])
 
 while True:
 	try:
