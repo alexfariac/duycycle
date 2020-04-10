@@ -15,12 +15,10 @@ while True:
 	try:
 	    data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
 	    if data:
-	    	print("received message:", data)
+	    	print("Received: ", data)
 	    	#enviar de volta a mensagem com o valor recebido, para o endereco e porta 
 	    	sock.sendto(str(data).encode(), addr)
 
-	    else:
-	    	print("No data yet")
-
 	except Exception as e:
-		print(e)
+		#TODO TRATAR AS EXCESSOES ESPECIFICAMENTE #BlokingIOError: Errno 11
+		pass
