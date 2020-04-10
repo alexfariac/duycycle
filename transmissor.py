@@ -1,8 +1,7 @@
-import select
 import socket
-import sys
 import time
-import os
+import shlex
+import subprocess
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -17,15 +16,15 @@ sock.setblocking(0)
 
 # sock.bind((UDP_IP, UDP_PORT))
 
-reps = 1000
-slot_size = 1000
+i=0 #numero de slots percorridos até o momento
+reps = 5 #quantidade de repeticoes de testes
+slot_size = 1000 #tamanho em MS de cada slot
+for rep in range(reps): #repeat the test multiple times
 
-for n in range(reps): #repeat the test multiple times
-	running_test = True #we reset the test control parameter
-	i = 0 #setar o contador paraum valor aleatorio dentro do schedule
+	duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '1000', 'grid', '4', '4'])
+	##python3 schedule.py wlp3s0 100 grid 4 4 #exemple call
 
-
-	while running_test:
+	while 1:
 		try:
 			time.sleep(int(slot_size)/1000) #wait for the slot time #we only try to send once each slot
 
@@ -38,13 +37,15 @@ for n in range(reps): #repeat the test multiple times
 			if data:
 				#recebemos retorno do receptor com o valor do primeiro slot de comunicacao
 				#resetar os parametros para um novo teste
-				# i = 0
-				print("RECEIVED", data)
+				i = 0 #setar o contador paraum valor aleatorio dentro do schedule
+				print("RECEIVED BACK: TESTno {}, SLOTno {}".format(rep,data))
+				duty_cicle.terminate() #terminar o duty cicle atual. 
+				break #we get out the the index count loop, and go back to the tests repetitions loop
 
 
 		except Exception as e:
 			#when conection is unreachable
-			print(e)
+			# print(e)
 			pass
 
 		finally:
