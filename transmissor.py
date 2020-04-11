@@ -1,6 +1,6 @@
 import socket
 import time
-import shlex
+import sys
 import subprocess
 
 UDP_IP = "192.168.1.2"
@@ -16,21 +16,27 @@ sock.setblocking(0)
 
 # sock.bind((UDP_IP, UDP_PORT))
 
+
+#python3 tranmissor.py {{reps}} {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
+args = sys.argv[1:7]
+
+REPS = args[0] #Number of tests to be performed, each test should only have one successfull send/receiveback
+INTERFACE, SLOT_SIZE, METHOD = args[1:4] 
+dutyCicleArgs = args[4:7]
+
+args = ['python3','schedule.py', INTERFACE, int(SLOT_SIZE), METHOD]+dutyCicleArgs
+
+
 i=0 #Noof slots runned so far
-reps = 100 #Number of tests to be performed, each test should only have one successfull send/receiveback
-slot_size = 200 #size of duty cicle slot in MS
+for rep in range(REPS): #repeat the test multiple times
 
-for rep in range(reps): #repeat the test multiple times
-
+	# duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '200', 'grid', '4', '4'])
 	#this calls the duty cicle method using the parameters we passed
+	duty_cicle = subprocess.Popen(args)
 	#INTERFACE SLOT_SIZE DUTY_CICLE_METHOD DUTY_CICLE_PARAMS
-	# duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '2000', 'grid', '4', '4'], creationflags = subprocess.CREATE_NEW_CONSOLE)
-	duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '200', 'grid', '4', '4'])
-	##python3 schedule.py wlp3s0 100 grid 4 4 #exemple call
 
 	while 1:
 		try:
-			time.sleep(int(slot_size)/1000) #wait for the slot time #we only try to send once each slot
 
 			data_to_send = "TestNo {}, SlotNo {}".format(rep, i).encode() #prepare data for sending
 			sock.sendto(data_to_send, (UDP_IP, UDP_PORT)) #send the data 
@@ -55,6 +61,7 @@ for rep in range(reps): #repeat the test multiple times
 
 		finally:
 			i = i+1
+			time.sleep(int(SLOT_SIZE)/1000) #wait for the slot time #we only try to send once each slot
 	
 
 
