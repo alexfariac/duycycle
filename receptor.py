@@ -13,11 +13,10 @@ sock.setblocking(0) #set the sock to do nonbloking read operations
 sock.bind((UDP_IP, UDP_PORT)) #bind the socket to the port and addr 
 
 #python3 tranmissor.py {{reps}} {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
-args = sys.argv[1:7]
+args = sys.argv[1:6]
 
-REPS = args[0] #Number of tests to be performed, each test should only have one successfull send/receiveback
-INTERFACE, SLOT_SIZE, METHOD = args[1:4] 
-dutyCicleArgs = args[4:7]
+INTERFACE, SLOT_SIZE, METHOD = args[1:3] 
+dutyCicleArgs = args[3:6]
 
 args = ['python3','schedule.py', INTERFACE, int(SLOT_SIZE), METHOD]+dutyCicleArgs
 
