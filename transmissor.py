@@ -20,11 +20,11 @@ sock.setblocking(0)
 #python3 tranmissor.py {{reps}} {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
 args = sys.argv[1:7]
 
-REPS = args[0] #Number of tests to be performed, each test should only have one successfull send/receiveback
+REPS = int(args[0]) #Number of tests to be performed, each test should only have one successfull send/receiveback
 INTERFACE, SLOT_SIZE, METHOD = args[1:4] 
 dutyCicleArgs = args[4:7]
 
-args = ['python3','schedule.py', INTERFACE, int(SLOT_SIZE), METHOD]+dutyCicleArgs
+args = ['python3','schedule.py', INTERFACE, SLOT_SIZE, METHOD]+dutyCicleArgs
 
 
 i=0 #Noof slots runned so far

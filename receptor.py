@@ -1,6 +1,7 @@
 import socket
 import time
 import subprocess
+import sys
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -15,10 +16,10 @@ sock.bind((UDP_IP, UDP_PORT)) #bind the socket to the port and addr
 #python3 tranmissor.py {{reps}} {{interface}} {{slot_size}} {{duty_cicle_method}} {{duty_cicle_args}}
 args = sys.argv[1:6]
 
-INTERFACE, SLOT_SIZE, METHOD = args[1:3] 
+INTERFACE, SLOT_SIZE, METHOD = args[0:3] 
 dutyCicleArgs = args[3:6]
 
-args = ['python3','schedule.py', INTERFACE, int(SLOT_SIZE), METHOD]+dutyCicleArgs
+args = ['python3','schedule.py', INTERFACE, SLOT_SIZE, METHOD]+dutyCicleArgs
 
 #this calls the duty cicle method using the parameters we passed
 #INTERFACE SLOT_SIZE DUTY_CICLE_METHOD DUTY_CICLE_PARAMS
