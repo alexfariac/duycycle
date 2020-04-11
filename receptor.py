@@ -31,7 +31,7 @@ while True:
 	    if data:
 	    	print("Received: ", data)
 	    	#enviar de volta a mensagem com o valor recebido, para o endereco e porta 
-	    	sock.sendto(str(data).encode(), addr)
+	    	sock.sendto(data, addr)
 
 	except Exception as e:
 		#In case of exceptions we just pass, many exceptions are raised by expecteded behavirous
