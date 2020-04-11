@@ -52,16 +52,19 @@ for rep in range(REPS): #repeat the test multiple times
 				duty_cicle.terminate() #end the subprocess that is running the current duty cicle so we can start a new one for next test
 				break #we get out the the index count loop, and go back to the tests repetitions loop
 
-
-		except Exception as e:
-			#when conection is unreachable #INTERFACE OFF
-			#when resource is busy/unavailable #NO DATA YET
-			# print(e)
+		except BlockingIOError as IOException:
+			#This exception is throw usually when we have no data wet to receive
+			#setbloking(0) has this behaviour
+			# print("No data to receive yet")
 			pass
 
+		except OSError as OSException:
+			# This exception is throw when the host is unrecleable, mostly because our interface is down
+			# print(OSException, "Interface down")
+			pass
+	
 		finally:
 			i = i+1
 			time.sleep(int(SLOT_SIZE)/1000) #wait for the slot time #we only try to send once each slot
-	
 
 
