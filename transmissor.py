@@ -2,6 +2,7 @@ import socket
 import time
 import sys
 import subprocess
+import json
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -38,13 +39,15 @@ for rep in range(REPS): #repeat the test multiple times
 	while 1:
 		try:
 
-			data_to_send = "TestNo {}, SlotNo {}".format(rep, i).encode() #prepare data for sending
+			# data_to_send = "TestNo {}, SlotNo {}".format(rep, i).encode() #prepare data for sending
+			data_to_send = json.dumps({'TestNo':rep, 'SlotNo':i}).encode()
 			sock.sendto(data_to_send, (UDP_IP, UDP_PORT)) #send the data 
 			
 			#we check (assinc) if we received data back from the receiver, was this the slot that had communication? 
 			data, addr = sock.recvfrom(1024) # buffer size is 1024 bytes
+			data = json.loads(data.decode())
 
-			if data:
+			if data and data["TestNo"] == rep :
 				#we received back data from receiver so there was successfull comunicatioin therefor we can prepare to set a new round of test
 				#reset parameters for new test
 				i = 0 #clear the counter that checks how many slots have passed so far
