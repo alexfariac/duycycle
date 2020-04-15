@@ -37,7 +37,19 @@ class Schedule:
 	def disco(self, p,q):
 		return [1 if slot%q == 0 or slot%p == 0 else 0 for slot in range(p*q)] 
 
-
+	def blockdesign(self, k, *_):
+		f = open("./blockdesigns", "r") #read the file that has our preprocessed blockdesigns
+		content = f.readlines()
+		for line in content:
+			line_array = line.strip("\n").split(",") #for eachline make an array with our info
+			if line_array[1] == str(k):
+				# print(line_array)
+				active_slots = line_array[3:] #get the subarray of active slots in the duty_cicle
+				schedule = [0]*int(line_array[0]) #create array of size v with all zeros
+				for on in active_slots: #for each on index in the duty_cicle turn on the acctual schedule array
+					schedule[int(on)] = 1
+				return schedule
+		raise Exception ("k parameter {} invalid".format(k))
 
 def main():
 	#eg. python schedule.py wlp3s0 1000 grid 4 4
@@ -58,6 +70,7 @@ def main():
 	schedule = schedule_obj.schedule
 	scheduleIndex = random.randint(0, schedule_obj.getSize()-1) #we start the 
 
+	exit()
 	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
 	while True:
 
