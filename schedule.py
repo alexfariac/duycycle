@@ -32,7 +32,7 @@ class Schedule:
 			return [1 if (lin == upLine or col == upColumn) else 0 for col in range(columns) for lin in range(lines)]
 
 	def searchlight(self, t, *_):
-		return [1 if slot == 0 or slot == row+1 else 0 for row in range(t/2) for slot in range(t)] 
+		return [1 if slot == 0 or slot == row+1 else 0 for row in range(t//2) for slot in range(t)] 
 
 	def disco(self, p,q):
 		return [1 if slot%q == 0 or slot%p == 0 else 0 for slot in range(p*q)] 
@@ -50,8 +50,9 @@ class Schedule:
 				for on in active_slots: #for each on index in the duty_cicle turn on the acctual schedule array
 					schedule[int(on)] = 1
 
+				f.close()
+				return schedule
 		f.close()			
-		return schedule
 		raise Exception ("k parameter {} invalid".format(k))
 
 def main():
