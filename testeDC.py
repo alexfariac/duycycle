@@ -43,7 +43,7 @@ class Schedule:
 			if line_array[1] == str(k):
 
 				active_slots = line_array[3:] #get the subarray of active slots in the duty_cicle
-				print(active_slots)
+				# print(active_slots)
 				schedule = [0]*int(line_array[0]) #create array of size v with all zeros
 				for on in active_slots: #for each on index in the duty_cicle turn on the acctual schedule array
 					schedule[int(on)] = 1
@@ -66,7 +66,7 @@ def main():
 	schedule = schedule_obj.schedule
 	onIndexs = sum(schedule)
 
-	print(schedule)
+	# print(schedule)
 	dc = (onIndexs*100.0/len(schedule))
 	print(dc,"%")
 
