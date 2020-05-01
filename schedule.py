@@ -74,16 +74,16 @@ def main():
 	schedule = schedule_obj.schedule
 	scheduleIndex = random.randint(0, schedule_obj.getSize()-1) #we start the 
 
-	print("START", time.strftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
+	# print("START", time.striftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
 	while True:
 
 		if(schedule[scheduleIndex]):
 			#interface on
-			print("Interface  ON", time.strftime("%H:%M:%S"))
+			# print("Interface  ON", time.strftime("%H:%M:%S"))
 			os.system("ifconfig {} up".format(interface))
 		else:
 			#interfaceoff
-			print("Interface  OFF", time.strftime("%H:%M:%S"))
+			# print("Interface  OFF", time.strftime("%H:%M:%S"))
 			os.system("ifconfig {} down".format(interface))
 
 
