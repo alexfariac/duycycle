@@ -50,8 +50,8 @@ for rep in range(REPS): #repeat the test multiple times
 			if data and data["TestNo"] == rep :
 				#we received back data from receiver so there was successfull comunicatioin therefor we can prepare to set a new round of test
 				#reset parameters for new test
-				i = 0 #clear the counter that checks how many slots have passed so far
-				print("RECEIVED BACK: {}".format(data))
+				i = -1 #clear the counter that checks how many slots have passed so far
+				print("{}".format(data))
 				duty_cicle.terminate() #end the subprocess that is running the current duty cicle so we can start a new one for next test
 				break #we get out the the index count loop, and go back to the tests repetitions loop
 
