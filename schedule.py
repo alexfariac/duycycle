@@ -75,6 +75,11 @@ def main():
 	scheduleIndex = random.randint(0, schedule_obj.getSize()-1) #we start the 
 
 	# print("START", time.striftime("%Y/%m/%d, %H:%M:%S")) #start of the schedule
+	os.system("ifconfig {} down".format(interface)) #turns off the interface so that during start delay happens no transmittions
+	slotDelay = random.randint(0,schedule_obj.getSize()-1)
+	sleepFor = slotDelay*slotSize
+	print("Wait for {} slots, Start at {}th slot".format(slotDelay,scheduleIndex))
+	time.sleep(sleepFor)
 	while True:
 
 		if(schedule[scheduleIndex]):
