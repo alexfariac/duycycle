@@ -79,7 +79,7 @@ def main():
 	slotDelay = random.randint(0,schedule_obj.getSize()-1)
 	sleepFor = slotDelay*int(slotSize)
 	print("Wait for {} slots, Start at {}th slot".format(slotDelay,scheduleIndex))
-	time.sleep(sleepFor)
+	time.sleep(sleepFor/1000)
 	while True:
 
 		if(schedule[scheduleIndex]):
