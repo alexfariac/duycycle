@@ -3,9 +3,6 @@ import time
 import sys
 import subprocess
 import json
-import random
-import os
-from schedule import Schedule
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -28,32 +25,19 @@ REPS = int(args[0]) #Number of tests to be performed, each test should only have
 INTERFACE, SLOT_SIZE, METHOD = args[1:4] 
 dutyCicleArgs = args[4:7]
 
-method = "{}({})".format(METHOD.lower(), ",".join(dutyCicleArgs) )
-schedule_obj = Schedule(method)
-
-schedule = schedule_obj.schedule
-scheduleSize = schedule_obj.getSize()
-scheduleIndex = random.randint(0, scheduleSize-1) #we start the schedule at the Nth slot
+args = ['python3','schedule.py', INTERFACE, SLOT_SIZE, METHOD]+dutyCicleArgs
 
 
 i=0 #Noof slots runned so far
 for rep in range(REPS): #repeat the test multiple times
 
-	slotDelay = random.randint(0,scheduleSize-1)
-	sleepFor = slotDelay*int(SLOT_SIZE)
-	print("Wait for {} slots, Start at {}th slot".format(slotDelay,scheduleIndex))
-	time.sleep(sleepFor/1000) #sleep before every test
+	# duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '200', 'grid', '4', '4'])
+	#this calls the duty cicle method using the parameters we passed
+	duty_cicle = subprocess.Popen(args)
+	#INTERFACE SLOT_SIZE DUTY_CICLE_METHOD DUTY_CICLE_PARAMS
 
 	while 1:
 		try:
-			if(schedule[scheduleIndex]):
-				#interface on
-				print("Interface  ON", time.strftime("%H:%M:%S"))
-				os.system("ifconfig {} up".format(INTERFACE))
-			else:
-				#interfaceoff
-				print("Interface  OFF", time.strftime("%H:%M:%S"))
-				os.system("ifconfig {} down".format(INTERFACE))
 
 			# data_to_send = "TestNo {}, SlotNo {}".format(rep, i).encode() #prepare data for sending
 			data_to_send = json.dumps({'TestNo':rep, 'SlotNo':i}).encode()
@@ -84,7 +68,6 @@ for rep in range(REPS): #repeat the test multiple times
 	
 		finally:
 			i = i+1
-			scheduleIndex = 0 if scheduleIndex >= len(schedule)-1 else scheduleIndex+1
 			time.sleep(int(SLOT_SIZE)/1000) #wait for the slot time #we only try to send once each slot
 
 
