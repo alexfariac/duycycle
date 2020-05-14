@@ -3,6 +3,8 @@ import time
 import sys
 import subprocess
 import json
+import random
+from dutyCicle import Schedule
 
 UDP_IP = "192.168.1.2"
 UDP_PORT = 5000
@@ -27,6 +29,11 @@ dutyCicleArgs = args[4:7]
 
 args = ['python3','schedule.py', INTERFACE, SLOT_SIZE, METHOD]+dutyCicleArgs
 
+method = "{}({})".format(METHOD.lower(), ",".join(dutyCicleArgs) )
+schedule_obj = Schedule(method)
+scheduleSize = schedule_obj.getSize()
+# scheduleSize = schedule_obj
+	
 
 i=0 #Noof slots runned so far
 for rep in range(REPS): #repeat the test multiple times
@@ -35,6 +42,10 @@ for rep in range(REPS): #repeat the test multiple times
 	#this calls the duty cicle method using the parameters we passed
 	duty_cicle = subprocess.Popen(args)
 	#INTERFACE SLOT_SIZE DUTY_CICLE_METHOD DUTY_CICLE_PARAMS
+
+	slotDelay = random.randint(0,scheduleSize-1)
+	testDelay = (slotDelay*int(SLOT_SIZE))/1000
+	time.sleep(testDelay)
 
 	while 1:
 		try:
