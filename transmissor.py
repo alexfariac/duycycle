@@ -35,7 +35,8 @@ scheduleSize = schedule_obj.getSize()
 # scheduleSize = schedule_obj
 	
 
-i=0 #Noof slots runned so far
+# i=0 #Noof slots runned so far
+responses = {}
 for rep in range(REPS): #repeat the test multiple times
 
 	# duty_cicle = subprocess.Popen(['python3', 'schedule.py', 'wlp3s0', '200', 'grid', '4', '4'])
@@ -44,9 +45,11 @@ for rep in range(REPS): #repeat the test multiple times
 	#INTERFACE SLOT_SIZE DUTY_CICLE_METHOD DUTY_CICLE_PARAMS
 
 	slotDelay = random.randint(0,scheduleSize-1)
+	print("Waiting {} slots for test {}".format(slotDelay, rep))
 	testDelay = (slotDelay*int(SLOT_SIZE))/1000
 	time.sleep(testDelay)
 
+	i=0
 	while 1:
 		try:
 
@@ -61,8 +64,8 @@ for rep in range(REPS): #repeat the test multiple times
 			if data and data["TestNo"] == rep :
 				#we received back data from receiver so there was successfull comunicatioin therefor we can prepare to set a new round of test
 				#reset parameters for new test
-				i = -1 #clear the counter that checks how many slots have passed so far
-				print("{}".format(data))
+				print("	{}".format(data))
+				responses[data["TestNo"]] = data["SlotNo"]
 				duty_cicle.terminate() #end the subprocess that is running the current duty cicle so we can start a new one for next test
 				break #we get out the the index count loop, and go back to the tests repetitions loop
 
@@ -81,4 +84,10 @@ for rep in range(REPS): #repeat the test multiple times
 			i = i+1
 			time.sleep(int(SLOT_SIZE)/1000) #wait for the slot time #we only try to send once each slot
 
+print("--------------------------")
+print(responses, len(responses))
+s = sum(responses.values())
+l = len(responses)
+a = s/l
+print(s,l,a)
 
