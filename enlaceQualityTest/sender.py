@@ -3,7 +3,7 @@ import json
 import time	
 
 
-UDP_IP = '192.168.1.2'
+UDP_IP = '127.0.0.1'
 UDP_PORT = 12000
 
 sock_addr = (UDP_IP, UDP_PORT)
@@ -13,7 +13,7 @@ sock = socket.socket(socket.AF_INET, # Internet
 
 sock.setblocking(0)
 
-SENDS = 1000
+SENDS = 10000
 
 for rep in range(SENDS):
 	datagram = {'no': rep, 'total': SENDS, 'done':0}

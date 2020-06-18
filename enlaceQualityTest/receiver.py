@@ -29,6 +29,6 @@ while 1:
 		revc+=1
 
 
-# eq = (revc/total)*100
-# print("RECEIVED {} OUT OF {} PACKAGES".format(revc, total))
-# print("LINK QUALITY : {}%".format(eq))
+eq = (revc/total)*100
+print("RECEIVED {} OUT OF {} PACKAGES".format(revc, total))
+print("LINK QUALITY : {}%".format(eq))
