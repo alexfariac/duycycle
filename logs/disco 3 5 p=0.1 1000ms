@@ -1,0 +1,210 @@
+wlp3s0    IEEE 802.11  ESSID:"redeadhoc"  
+          Mode:Ad-Hoc  Frequency:2.412 GHz  Cell: 00:11:22:33:44:55   
+          Tx-Power=15 dBm   
+          Retry short limit:7   RTS thr:off   Fragment thr:off
+          Encryption key:off
+          Power Management:off
+          
+Waiting 5 slots for test 0
+	{'TestNo': 0, 'SlotNo': 177}
+Waiting 7 slots for test 1
+	{'TestNo': 1, 'SlotNo': 21}
+Waiting 0 slots for test 2
+	{'TestNo': 2, 'SlotNo': 102}
+Waiting 3 slots for test 3
+	{'TestNo': 3, 'SlotNo': 14}
+Waiting 11 slots for test 4
+	{'TestNo': 4, 'SlotNo': 134}
+Waiting 2 slots for test 5
+	{'TestNo': 5, 'SlotNo': 112}
+Waiting 2 slots for test 6
+	{'TestNo': 6, 'SlotNo': 14}
+Waiting 12 slots for test 7
+	{'TestNo': 7, 'SlotNo': 18}
+Waiting 4 slots for test 8
+	{'TestNo': 8, 'SlotNo': 23}
+Waiting 10 slots for test 9
+	{'TestNo': 9, 'SlotNo': 36}
+Waiting 0 slots for test 10
+	{'TestNo': 10, 'SlotNo': 29}
+Waiting 9 slots for test 11
+	{'TestNo': 11, 'SlotNo': 94}
+Waiting 11 slots for test 12
+	{'TestNo': 12, 'SlotNo': 15}
+Waiting 9 slots for test 13
+	{'TestNo': 13, 'SlotNo': 2}
+Waiting 6 slots for test 14
+	{'TestNo': 14, 'SlotNo': 198}
+Waiting 4 slots for test 15
+	{'TestNo': 15, 'SlotNo': 2}
+Waiting 0 slots for test 16
+	{'TestNo': 16, 'SlotNo': 18}
+Waiting 14 slots for test 17
+	{'TestNo': 17, 'SlotNo': 31}
+Waiting 12 slots for test 18
+	{'TestNo': 18, 'SlotNo': 48}
+Waiting 8 slots for test 19
+	{'TestNo': 19, 'SlotNo': 26}
+Waiting 0 slots for test 20
+	{'TestNo': 20, 'SlotNo': 58}
+Waiting 2 slots for test 21
+	{'TestNo': 21, 'SlotNo': 43}
+Waiting 1 slots for test 22
+	{'TestNo': 22, 'SlotNo': 1}
+Waiting 9 slots for test 23
+	{'TestNo': 23, 'SlotNo': 86}
+Waiting 9 slots for test 24
+	{'TestNo': 24, 'SlotNo': 57}
+Waiting 6 slots for test 25
+	{'TestNo': 25, 'SlotNo': 39}
+Waiting 0 slots for test 26
+	{'TestNo': 26, 'SlotNo': 13}
+Waiting 14 slots for test 27
+	{'TestNo': 27, 'SlotNo': 25}
+Waiting 5 slots for test 28
+	{'TestNo': 28, 'SlotNo': 103}
+Waiting 1 slots for test 29
+	{'TestNo': 29, 'SlotNo': 92}
+Waiting 2 slots for test 30
+	{'TestNo': 30, 'SlotNo': 42}
+Waiting 5 slots for test 31
+	{'TestNo': 31, 'SlotNo': 62}
+Waiting 0 slots for test 32
+	{'TestNo': 32, 'SlotNo': 22}
+Waiting 4 slots for test 33
+	{'TestNo': 33, 'SlotNo': 182}
+Waiting 14 slots for test 34
+	{'TestNo': 34, 'SlotNo': 50}
+Waiting 11 slots for test 35
+	{'TestNo': 35, 'SlotNo': 36}
+Waiting 6 slots for test 36
+	{'TestNo': 36, 'SlotNo': 29}
+Waiting 0 slots for test 37
+	{'TestNo': 37, 'SlotNo': 66}
+Waiting 11 slots for test 38
+	{'TestNo': 38, 'SlotNo': 29}
+Waiting 13 slots for test 39
+	{'TestNo': 39, 'SlotNo': 39}
+Waiting 12 slots for test 40
+	{'TestNo': 40, 'SlotNo': 70}
+Waiting 8 slots for test 41
+	{'TestNo': 41, 'SlotNo': 63}
+Waiting 14 slots for test 42
+	{'TestNo': 42, 'SlotNo': 34}
+Waiting 5 slots for test 43
+	{'TestNo': 43, 'SlotNo': 96}
+Waiting 11 slots for test 44
+	{'TestNo': 44, 'SlotNo': 2}
+Waiting 7 slots for test 45
+	{'TestNo': 45, 'SlotNo': 10}
+Waiting 6 slots for test 46
+	{'TestNo': 46, 'SlotNo': 66}
+Waiting 11 slots for test 47
+	{'TestNo': 47, 'SlotNo': 20}
+Waiting 0 slots for test 48
+	{'TestNo': 48, 'SlotNo': 136}
+Waiting 1 slots for test 49
+	{'TestNo': 49, 'SlotNo': 36}
+Waiting 10 slots for test 50
+	{'TestNo': 50, 'SlotNo': 25}
+Waiting 14 slots for test 51
+	{'TestNo': 51, 'SlotNo': 15}
+Waiting 12 slots for test 52
+	{'TestNo': 52, 'SlotNo': 60}
+Waiting 4 slots for test 53
+	{'TestNo': 53, 'SlotNo': 72}
+Waiting 3 slots for test 54
+	{'TestNo': 54, 'SlotNo': 12}
+Waiting 3 slots for test 55
+	{'TestNo': 55, 'SlotNo': 51}
+Waiting 8 slots for test 56
+	{'TestNo': 56, 'SlotNo': 78}
+Waiting 4 slots for test 57
+	{'TestNo': 57, 'SlotNo': 42}
+Waiting 11 slots for test 58
+	{'TestNo': 58, 'SlotNo': 1}
+Waiting 13 slots for test 59
+	{'TestNo': 59, 'SlotNo': 90}
+Waiting 10 slots for test 60
+	{'TestNo': 60, 'SlotNo': 1}
+Waiting 8 slots for test 61
+	{'TestNo': 61, 'SlotNo': 51}
+Waiting 0 slots for test 62
+	{'TestNo': 62, 'SlotNo': 52}
+Waiting 2 slots for test 63
+	{'TestNo': 63, 'SlotNo': 8}
+Waiting 7 slots for test 64
+	{'TestNo': 64, 'SlotNo': 61}
+Waiting 11 slots for test 65
+	{'TestNo': 65, 'SlotNo': 36}
+Waiting 11 slots for test 66
+	{'TestNo': 66, 'SlotNo': 12}
+Waiting 11 slots for test 67
+	{'TestNo': 67, 'SlotNo': 51}
+Waiting 9 slots for test 68
+	{'TestNo': 68, 'SlotNo': 10}
+Waiting 9 slots for test 69
+	{'TestNo': 69, 'SlotNo': 54}
+Waiting 2 slots for test 70
+	{'TestNo': 70, 'SlotNo': 25}
+Waiting 7 slots for test 71
+	{'TestNo': 71, 'SlotNo': 2}
+Waiting 14 slots for test 72
+	{'TestNo': 72, 'SlotNo': 18}
+Waiting 8 slots for test 73
+	{'TestNo': 73, 'SlotNo': 49}
+Waiting 4 slots for test 74
+	{'TestNo': 74, 'SlotNo': 11}
+Waiting 10 slots for test 75
+	{'TestNo': 75, 'SlotNo': 35}
+Waiting 14 slots for test 76
+	{'TestNo': 76, 'SlotNo': 77}
+Waiting 3 slots for test 77
+	{'TestNo': 77, 'SlotNo': 10}
+Waiting 3 slots for test 78
+	{'TestNo': 78, 'SlotNo': 10}
+Waiting 11 slots for test 79
+	{'TestNo': 79, 'SlotNo': 1}
+Waiting 11 slots for test 80
+	{'TestNo': 80, 'SlotNo': 10}
+Waiting 1 slots for test 81
+	{'TestNo': 81, 'SlotNo': 12}
+Waiting 6 slots for test 82
+	{'TestNo': 82, 'SlotNo': 38}
+Waiting 0 slots for test 83
+	{'TestNo': 83, 'SlotNo': 9}
+Waiting 1 slots for test 84
+	{'TestNo': 84, 'SlotNo': 82}
+Waiting 2 slots for test 85
+	{'TestNo': 85, 'SlotNo': 58}
+Waiting 7 slots for test 86
+	{'TestNo': 86, 'SlotNo': 73}
+Waiting 12 slots for test 87
+	{'TestNo': 87, 'SlotNo': 42}
+Waiting 1 slots for test 88
+	{'TestNo': 88, 'SlotNo': 61}
+Waiting 1 slots for test 89
+	{'TestNo': 89, 'SlotNo': 24}
+Waiting 13 slots for test 90
+	{'TestNo': 90, 'SlotNo': 62}
+Waiting 8 slots for test 91
+	{'TestNo': 91, 'SlotNo': 35}
+Waiting 6 slots for test 92
+	{'TestNo': 92, 'SlotNo': 4}
+Waiting 2 slots for test 93
+	{'TestNo': 93, 'SlotNo': 188}
+Waiting 0 slots for test 94
+	{'TestNo': 94, 'SlotNo': 47}
+Waiting 7 slots for test 95
+	{'TestNo': 95, 'SlotNo': 20}
+Waiting 1 slots for test 96
+	{'TestNo': 96, 'SlotNo': 61}
+Waiting 14 slots for test 97
+	{'TestNo': 97, 'SlotNo': 4}
+Waiting 1 slots for test 98
+	{'TestNo': 98, 'SlotNo': 7}
+Waiting 11 slots for test 99
+	{'TestNo': 99, 'SlotNo': 13}
+--------------------------
+{0: 177, 1: 21, 2: 102, 3: 14, 4: 134, 5: 112, 6: 14, 7: 18, 8: 23, 9: 36, 10: 29, 11: 94, 12: 15, 13: 2, 14: 198, 15: 2, 16: 18, 17: 31, 18: 48, 19: 26, 20: 58, 21: 43, 22: 1, 23: 86, 24: 57, 25: 39, 26: 13, 27: 25, 28: 103, 29: 92, 30: 42, 31: 62, 32: 22, 33: 182, 34: 50, 35: 36, 36: 29, 37: 66, 38: 29, 39: 39, 40: 70, 41: 63, 42: 34, 43: 96, 44: 2, 45: 10, 46: 66, 47: 20, 48: 136, 49: 36, 50: 25, 51: 15, 52: 60, 53: 72, 54: 12, 55: 51, 56: 78, 57: 42, 58: 1, 59: 90, 60: 1, 61: 51, 62: 52, 63: 8, 64: 61, 65: 36, 66: 12, 67: 51, 68: 10, 69: 54, 70: 25, 71: 2, 72: 18, 73: 49, 74: 11, 75: 35, 76: 77, 77: 10, 78: 10, 79: 1, 80: 10, 81: 12, 82: 38, 83: 9, 84: 82, 85: 58, 86: 73, 87: 42, 88: 61, 89: 24, 90: 62, 91: 35, 92: 4, 93: 188, 94: 47, 95: 20, 96: 61, 97: 4, 98: 7, 99: 13} 100
+4591 100 45.91
