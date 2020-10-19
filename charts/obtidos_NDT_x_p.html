@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js" integrity="sha512-s/XK4vYVXTGeUSv4bRPOuxSDmDlTedEpMEcAQk0t/FMd9V6ft8iXdwSBxV0eD60c6w/tjotSlKu9J2AAW1ckTA==" crossorigin="anonymous"></script>
+<head>
+    <script>
+        window.onload = function () {
+
+            CanvasJS.addCultureInfo("br",
+            {
+                decimalSeparator: ",",
+                digitGroupSeparator: "."
+            });
+
+            var chart40pc = new CanvasJS.Chart("chartContainer40pc", {
+                culture:  "br",
+                exportEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "40% Family Duty Cycle"
+                },
+                axisX: {
+                    title: "Probabilidade de sucesso da entrega (p)"
+                },
+                axisY: {
+                    title: "Latência (slots)",
+                    includeZero: true,
+                },
+                toolTip: {
+                    shared: true
+                },
+                data: [{
+                    type: "line",
+                    showInLegend: true,
+                    name: "Block Design(7,3,1)",
+                    markerType: "square",
+                    dataPoints: [
+                        { x: 0.1, y: 42.74 },
+                        { x: 0.5, y: 7.69 },
+                        { x: 0.7, y: 4.69 },
+                        { x: 0.8, y: 4.65 },
+                        { x: 1, y: 2.74 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Disco(3, 5)",
+                    markerType: "triangle",
+                    dataPoints: [
+                        { x: 0.1, y: 67.07 },
+                        { x: 0.5, y: 7.74 },
+                        { x: 0.7, y: 5.52 },
+                        { x: 0.8, y: 3.74 },
+                        { x: 1, y: 3.36 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Searchlight(5)",
+                    markerType: "circle",
+                    dataPoints: [
+                        { x: 0.1, y: 75.40 },
+                        { x: 0.5, y: 11.26 },
+                        { x: 0.7, y: 7.4 },
+                        { x: 0.8, y: 5.66 },
+                        { x: 1, y: 4.15 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Torus(3,3)",
+                    markerType: "cross",
+                    dataPoints: [
+                        { x: 0.1, y: 48.01 },
+                        { x: 0.5, y: 8.26 },
+                        { x: 0.7, y: 5.63 },
+                        { x: 0.8, y: 4.03 },
+                        { x: 1, y: 3.48 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Grid(4,4)",
+                    markerType: "none",
+                    dataPoints: [
+                        { x: 0.1, y: 51.33 },
+                        { x: 0.5, y: 8.08 },
+                        { x: 0.7, y: 6.87 },
+                        { x: 0.8, y: 6.65 },
+                        { x: 1, y: 4.36 }
+                    ]
+                }]
+            });
+            chart40pc.render();
+
+            var chart10pc = new CanvasJS.Chart("chartContainer10pc", {
+                culture : "br",
+                exportEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "10% Family Duty Cycle"
+                },
+                axisX: {
+                    title: "Probabilidade de sucesso da entrega (p)"
+                },
+                axisY: {
+                    title: "Latência (slots)",
+                    includeZero: true,
+                },
+                toolTip: {
+                    shared: true
+                },
+                data: [{
+                    type: "line",
+                    showInLegend: true,
+                    name: "Block Design(91,10,1)",
+                    markerType: "square",
+                    dataPoints: [
+                        { x: 0.7, y: 110.83 },
+                        { x: 0.8, y: 103.79 },
+                        { x: 1, y: 71.12 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Disco(17, 23)",
+                    markerType: "triangle",
+                    dataPoints: [
+                        { x: 0.7, y: 231.04 },
+                        { x: 0.8, y: 186.82 },
+                        { x: 1, y: 144.55 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Searchlight(20)",
+                    markerType: "circle",
+                    dataPoints: [
+                        { x: 0.7, y: 203.75 },
+                        { x: 0.8, y: 176.65 },
+                        { x: 1, y: 145.71 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Torus(14,14)",
+                    markerType: "cross",
+                    dataPoints: [
+                        { x: 0.7, y: 213.55 },
+                        { x: 0.8, y: 138.89 },
+                        { x: 1, y: 125.18 }
+                    ]
+                },
+                {
+                    type: "line",
+                    showInLegend: true,
+                    name: "Grid(19,19)",
+                    markerType: "none",
+                    dataPoints: [
+                        { x: 0.7, y: 189.27 },
+                        { x: 0.8, y: 163.23 },
+                        { x: 1, y: 141.71 }
+                    ]
+                }]
+            });
+            chart10pc.render();
+
+            function toogleDataSeries(e) {
+                if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                    e.dataSeries.visible = false;
+                } else {
+                    e.dataSeries.visible = true;
+                }
+                chart.render();
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="chartContainer40pc" style="margin-top: 50px; height: 400px; width: 60%;"></div>
+    
+    <div id="chartContainer10pc" style="margin-top: 50px; height: 400px; width: 60%;"></div>
+</body>
+
+</html>

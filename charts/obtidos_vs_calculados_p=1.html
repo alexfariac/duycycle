@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<script>
+		window.onload = function () {
+
+			CanvasJS.addCultureInfo("br",
+            {
+                decimalSeparator: ",",
+                digitGroupSeparator: "."
+            });
+
+			var chart = new CanvasJS.Chart("chartContainer", {
+				culture:  "br",
+				exportEnabled: true,
+				theme: "light1",
+				title: {
+					text: "Resultados obtivos vs calculados p=1"
+				},
+				axisY: {
+					title: "Latência (slots)"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [
+					{
+						type: "column",
+						name: "Valores Obtidos",
+						legendText: "Valores Obtidos",
+						showInLegend: true,
+						dataPoints: [
+							{ label: "Blockdesign (7,3,1)", y: 2.74 },
+							{ label: "Blockdesign (91,10,1)", y: 71.12 },
+							{ label: "Disco (3,5)", y: 3.63 },
+							{ label: "Disco (17, 23)", y: 144.55 },
+							{ label: "Searchlight (5)", y: 4.15 },
+							{ label: "Searchlight (20)", y: 145.71 },
+							{ label: "Torus (3,3)", y: 3.48 },
+							{ label: "Torus (14,14)", y: 125.18 },
+							{ label: "Grid (4,4)", y: 4.36 },
+							{ label: "Grid (19,19)", y: 141.71 }
+						]
+					},
+					{
+						type: "error",
+						whiskerLength: 25,
+						name: "Intervalo de confiança",
+						showInLegend: true,
+						dataPoints: [
+							{ y: [2.2954795464, 3.1845204536] },
+							{ y: [57.47360661, 84.76639339] },
+							{ y: [2.855648219, 4.404351781] },
+							{ y: [118.64926976, 170.45073024] },
+							{ y: [3.3362041893, 4.9637958107] },
+							{ y: [115.54621343, 175.87378657] },
+							{ y: [2.9053742717, 4.0546257283] },
+							{ y: [102.50567868, 147.85432132] },
+							{ y: [3.5061, 5.2138] },
+							{ y: [120.47037307, 162.94962693] }
+						]
+					},
+					{
+						type: "column",
+						name: "Valores calculados",
+						legendText: "Valores calculados",
+						showInLegend: true,
+						dataPoints: [
+							{ label: "Blockdesign (7,3,1)", y: 3 },
+							{ label: "Blockdesign (91,10,1)", y: 45 },
+							{ label: "Disco (3,5)", y: 3.071111 },
+							{ label: "Disco (17, 23)", y: 117.948627 },
+							{ label: "Searchlight (5)", y: 4.5 },
+							{ label: "Searchlight (20)", y: 99.5 },
+							{ label: "Torus (3,3)", y: 2.975309 },
+							{ label: "Torus (14,14)", y: 86.144471 },
+							{ label: "Grid (4,4)", y: 3.585938 },
+							{ label: "Grid (19,19)", y: 113.070887 }
+						]
+					}]
+			});
+			chart.render();
+
+
+			var chartNoOutliers = new CanvasJS.Chart("chartContainerNO", {
+				culture:  "br",
+				exportEnabled : true,
+				title: {
+					text: "Resultados obtivos vs calculados p=1 outliers removidos"
+				},
+				axisY: {
+					title: "Latência (slots)"
+				},
+				toolTip: {
+					shared: true
+				},
+				data: [{
+					type: "column",
+					name: "Valores Obtidos",
+					legendText: "Valores Obtidos",
+					showInLegend: true,
+					dataPoints: [
+						{ label: "Blockdesign (7,3,1)", y: 2.425531915 },
+						{ label: "Blockdesign (91,10,1)", y: 39.46666667 },
+						{ label: "Disco (3,5)", y: 3.37755102 },
+						{ label: "Disco (17, 23)", y: 112.9120879 },
+						{ label: "Searchlight (5)", y: 3.407407407 },
+						{ label: "Searchlight (20)", y: 71.4 },
+						{ label: "Torus (3,3)", y: 3.157894737 },
+						{ label: "Torus (14,14)", y: 83.85542169 },
+						{ label: "Grid (4,4)", y: 4.36 },
+						{ label: "Grid (19,19)", y: 139.4747475 }
+					]
+				},
+				{
+					type: "error",
+					whiskerLength: 25,
+					name: "Intervalo de confiança",
+					showInLegend: true,
+					dataPoints: [
+						{ y: [1.950136395, 2.900927435] },
+						{ y: [31.731342138, 47.201991202] },
+						{ y: [2.7155631839, 4.0395388561] },
+						{ y: [90.78172531, 135.04245049] },
+						{ y: [2.7395678265, 4.0752469875] },
+						{ y: [55.2409557, 87.5590443] },
+						{ y: [2.5228798042, 3.7929096698] },
+						{ y: [65.81526969, 101.89557369] },
+						{ y: [3.5061, 5.2145442979] },
+						{ y: [118.48085955, 160.46863545] }
+					]
+				},
+				{
+					type: "column",
+					name: "Valores calculados",
+					legendText: "Valores calculados",
+					showInLegend: true,
+					dataPoints: [
+						{ label: "Blockdesign (7,3,1)", y: 3 },
+						{ label: "Blockdesign (91,10,1)", y: 45 },
+						{ label: "Disco (3,5)", y: 3.071111 },
+						{ label: "Disco (17, 23)", y: 117.948627 },
+						{ label: "Searchlight (5)", y: 4.5 },
+						{ label: "Searchlight (20)", y: 99.5 },
+						{ label: "Torus (3,3)", y: 2.975309 },
+						{ label: "Torus (14,14)", y: 86.144471 },
+						{ label: "Grid (4,4)", y: 3.585938 },
+						{ label: "Grid (19,19)", y: 113.070887 }
+					]
+				}]
+			});
+			chartNoOutliers.render();
+
+			function toggleDataSeries(e) {
+				if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+					e.dataSeries.visible = false;
+				}
+				else {
+					e.dataSeries.visible = true;
+				}
+				chart.render();
+			}
+
+		}
+	</script>
+</head>
+
+<body>
+	<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+	<div id="chartContainerNO" style="height: 370px; width: 100%;"></div>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</body>
+
+</html>
