@@ -18,7 +18,7 @@
                 exportEnabled: true,
                 theme: "light2",
                 title: {
-                    text: "40% Family Duty Cycle"
+                    //text: "40% Family Duty Cycle"
                 },
                 axisX: {
                     title: "Probabilidade de sucesso da entrega (p)"
@@ -103,14 +103,15 @@
                 exportEnabled: true,
                 theme: "light2",
                 title: {
-                    text: "10% Family Duty Cycle"
+                    //text: "10% Family Duty Cycle"
                 },
                 axisX: {
-                    title: "Probabilidade de sucesso da entrega (p)"
+                    title: "Probabilidade de sucesso da entrega (p)",
+                     maximum:1.01
                 },
                 axisY: {
                     title: "Latência (slots)",
-                    includeZero: true,
+                    includeZero: true
                 },
                 toolTip: {
                     shared: true
@@ -187,9 +188,9 @@
 </head>
 
 <body>
-    <div id="chartContainer40pc" style="margin-top: 50px; height: 400px; width: 60%;"></div>
+    <div id="chartContainer40pc" style="margin-top: 50px; height: 400px; width: 30%;"></div>
     
-    <div id="chartContainer10pc" style="margin-top: 50px; height: 400px; width: 60%;"></div>
+    <div id="chartContainer10pc" style="margin-top: 50px; height: 400px; width: 30%;"></div>
 </body>
 
 </html>
